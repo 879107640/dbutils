@@ -2,16 +2,20 @@ package com.test.service;
 
 import com.test.dao.UserDao;
 import com.test.domain.User;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class UserService {
 
+    @Autowired
     private UserDao userDao;
 
-    public void setUserDao(UserDao userDao) {
+    /*public void setUserDao(UserDao userDao) {
         this.userDao = userDao;
-    }
+    }*/
 
     public void saveUser(User user){
         userDao.saveUser(user);

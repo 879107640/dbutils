@@ -18,8 +18,9 @@ public class UserControllerTest {
     @Before
     public void init(){
         ac = new ClassPathXmlApplicationContext("bean.xml");
-        userService = (UserService) ac.getBean("userService");
+        userService = ac.getBean("userService",UserService.class);
     }
+
     @Test
     public void saveTest(){
         User user = new User();
@@ -52,7 +53,6 @@ public class UserControllerTest {
     @Test
     public void findAll(){
         List<User> list = userService.findAll();
-        System.out.println(list);
         list.forEach(user-> System.out.println(user));
     }
 
